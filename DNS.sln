@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNS", "DNS\DNS.csproj", "{74E37A8B-A829-4D36-898D-BB92A22EF224}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{6CEE75F5-2BA3-43B0-93F2-FA75B6C766D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnsServerTestProject", "DnsServerTestProject\DnsServerTestProject.csproj", "{7FD446F9-79A6-4BA1-B0C6-FC27D26F243A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74E37A8B-A829-4D36-898D-BB92A22EF224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E37A8B-A829-4D36-898D-BB92A22EF224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E37A8B-A829-4D36-898D-BB92A22EF224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E37A8B-A829-4D36-898D-BB92A22EF224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CEE75F5-2BA3-43B0-93F2-FA75B6C766D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CEE75F5-2BA3-43B0-93F2-FA75B6C766D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CEE75F5-2BA3-43B0-93F2-FA75B6C766D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CEE75F5-2BA3-43B0-93F2-FA75B6C766D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD446F9-79A6-4BA1-B0C6-FC27D26F243A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD446F9-79A6-4BA1-B0C6-FC27D26F243A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD446F9-79A6-4BA1-B0C6-FC27D26F243A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD446F9-79A6-4BA1-B0C6-FC27D26F243A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
