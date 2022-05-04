@@ -13,7 +13,7 @@ public class NameParseShould
         fixed (byte* start = DnsTestData.Query)
         {
             var ptr = start + startOfQuery;
-            var actual = NameParser.ParseName(ptr, start);
+            var actual = ByteHelper.ParseName(ptr, start);
 
             actual.name.Should().BeEquivalentTo("e1", "ru");
             actual.readLen.Should().Be(7);
@@ -27,7 +27,7 @@ public class NameParseShould
         fixed (byte* start = DnsTestData.Response)
         {
             var ptr = start + startOfResponse;
-            var actual = NameParser.ParseName(ptr, start);
+            var actual = ByteHelper.ParseName(ptr, start);
 
             actual.name.Should().BeEquivalentTo("e1", "ru");
             actual.readLen.Should().Be(2);

@@ -5,7 +5,7 @@ namespace DNS.DnsPacket;
 public record DnsMessageHeaders(
     ushort Id,
     DnsHeadrsFlags Flags,
-    ushort QueryCount,
+    ushort QuestionCount,
     ushort AnswersCount,
     ushort AuthoritySectionCount,
     ushort AdditionalRecordSecCount)
@@ -23,5 +23,17 @@ public record DnsMessageHeaders(
         return new DnsMessageHeaders(id, flags,
             queryCount, answerCount,
             authSecCount, additRecSecCount);
+    }
+
+    public byte[] GetBytes()
+    {
+        var result = new List<byte>();
+        result.AddRange(ByteHelper.GetBytes(Id));
+        result.AddRange(ByteHelper.GetBytes(Flags.FlagsBytes));
+        result.AddRange(ByteHelper.GetBytes(QuestionCount));
+        result.AddRange(ByteHelper.GetBytes(AnswersCount));
+        result.AddRange(ByteHelper.GetBytes(AuthoritySectionCount));
+        result.AddRange(ByteHelper.GetBytes(AdditionalRecordSecCount));
+        return result.ToArray();
     }
 }

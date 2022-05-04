@@ -28,4 +28,12 @@ public class DnsMessageShould
 
         actual.Should().BeEquivalentTo(expected);
     }
+
+    [Test]
+    public void DnsMessage_getBytes_should()
+    {
+        var actual = DnsMessage.Parse(DnsTestData.Query).GetBytes();
+
+        actual.Should().BeEquivalentTo(DnsTestData.Query);
+    }
 }

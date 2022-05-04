@@ -6,6 +6,8 @@ public class DnsMessage
     public readonly IReadOnlyList<DnsQuery> Queries;
     public readonly IReadOnlyList<DnsRRData> RData;
 
+    public QR Type => Headers.Flags.Type;
+
     public DnsMessage(DnsMessageHeaders headers, IReadOnlyList<DnsQuery> queries, IReadOnlyList<DnsRRData> rData)
     {
         Headers = headers;
@@ -23,7 +25,7 @@ public class DnsMessage
         {
             var ptr = start + index;
 
-            for (var i = 0; i < headers.QueryCount; i++)
+            for (var i = 0; i < headers.QuestionCount; i++)
             {
                 var query = DnsQuery.Parse(ptr, start);
                 ptr += query.ReadBytes;
@@ -41,5 +43,22 @@ public class DnsMessage
         }
 
         return new DnsMessage(headers, queries, answers);
+    }
+
+    public byte[] GetBytes()
+    {
+        var res = new List<byte>();
+        res.AddRange(Headers.GetBytes());
+        foreach (var query in Queries)
+        {
+            res.AddRange(query.GetBytes());
+        }
+
+        foreach (var data in RData)
+        {
+            res.AddRange(data.GetBytes());
+        }
+
+        return res.ToArray();
     }
 }
