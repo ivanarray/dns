@@ -35,6 +35,7 @@ public class DnsServer : IDisposable
             Task.Run(cache.CleanOldRecords);
         };
         cacheCleanerTimer.Start();
+        cacheCleanerTimer.AutoReset = true;
     }
 
     public void Run()
