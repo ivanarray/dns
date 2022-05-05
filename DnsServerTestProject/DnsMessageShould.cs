@@ -21,12 +21,13 @@ public class DnsMessageShould
     [Test]
     public void DnsMessage_response_should()
     {
-        var expected = new DnsMessage(DnsTestData.ResponseHeaders, new[] { DnsTestData.RequestA},
+        var expected = new DnsMessage(DnsTestData.ResponseHeaders, new[] { DnsTestData.RequestA },
             new[] { DnsTestData.Answer, DnsTestData.Ns1, DnsTestData.Ns2 });
 
         var actual = DnsMessage.Parse(DnsTestData.Response);
 
-        actual.Should().BeEquivalentTo(expected);
+        actual.Should().BeEquivalentTo(expected, option =>
+            option.Excluding(ctx => ctx.Path.Contains("Created")));
     }
 
     [Test]

@@ -1,4 +1,5 @@
-﻿using DNS.DnsPacket;
+﻿using System;
+using DNS.DnsPacket;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -15,13 +16,14 @@ public class RRDataShould
             QueryType.A,
             1, 279, 4,
             new byte[] { 0xc3, 0x13, 0xdc, 0x18 },
+            DateTime.Now,
             16);
 
         fixed (byte* startDatagram = DnsTestData.Response)
         {
             var start = startDatagram + 23;
             var actual = DnsRRData.Parse(start, startDatagram);
-            actual.Should().BeEquivalentTo(expected);
+            actual.Should().BeEquivalentTo(expected, opt => opt.Excluding(x => x.Created));
         }
     }
 }

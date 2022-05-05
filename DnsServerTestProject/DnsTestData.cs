@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using DNS.DnsPacket;
 
 namespace DnsServerTestProject;
@@ -47,19 +47,22 @@ public static class DnsTestData
         QueryType.A,
         1, 279, 4,
         new byte[] { 0xc3, 0x13, 0xdc, 0x18 },
+        DateTime.Now,
         16);
 
     public static readonly DnsRRData Ns1 = new(
         new[] { "e1", "ru" },
         QueryType.NS,
         1, 177, 11,
-        new byte[] { 0x02, 0x6e, 0x73, 0x05, 0x68, 0x73, 0x64, 0x72, 0x6e, 0xc0, 0x0f }
+        new byte[] { 0x02, 0x6e, 0x73, 0x05, 0x68, 0x73, 0x64, 0x72, 0x6e, 0xc0, 0x0f },
+        DateTime.Now
         , 23);
 
     public static readonly DnsRRData Ns2 = new(
         new[] { "e1", "ru" },
         QueryType.NS,
         1, 177, 10,
-        new byte[] { 0x03, 0x6e, 0x73, 0x31, 0x03, 0x6e, 0x67, 0x73, 0xc0, 0x0f }
+        new byte[] { 0x03, 0x6e, 0x73, 0x31, 0x03, 0x6e, 0x67, 0x73, 0xc0, 0x0f },
+        DateTime.Now
         , 22);
 }

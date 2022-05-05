@@ -44,14 +44,14 @@ public enum DnsRCode : ushort
     NOTZONE
 }
 
-public record DnsHeadrsFlags(QR Type, DnsHeadresBits Flags, DnsOpcode Opcode, DnsRCode RCode)
+public record DnsHeadrsFlags(QR Type, DnsHeadresBits Bits, DnsOpcode Opcode, DnsRCode RCode)
 {
     private const ushort QRMasc = 0b1_0000_0000_000_0000;
     private const ushort OpcodeMasc = 0b0_1111_0000_000_0000;
     private const ushort FlagsMasc = 0b0_0000_1111_000_0000;
     private const ushort RCodeMasc = 0b0_0000_0000_000_1111;
 
-    public ushort FlagsBytes => Or(Or((ushort)Flags, (ushort)Opcode), Or((ushort)Type, (ushort)RCode));
+    public ushort FlagsBytes => Or(Or((ushort)Bits, (ushort)Opcode), Or((ushort)Type, (ushort)RCode));
 
     public static DnsHeadrsFlags Parse(short value)
     {

@@ -27,8 +27,8 @@ public class HeadersShould
         headers.Type.Should().Be(QR.RESPONSE);
         headers.RCode.Should().Be(DnsRCode.NOERROR);
         headers.Opcode.Should().Be(DnsOpcode.STANDART_QUERY);
-        headers.Flags.Should().HaveFlag(DnsHeadresBits.RD);
-        headers.Flags.Should().HaveFlag(DnsHeadresBits.RA);
+        headers.Bits.Should().HaveFlag(DnsHeadresBits.RD);
+        headers.Bits.Should().HaveFlag(DnsHeadresBits.RA);
     }
 
     [Test]

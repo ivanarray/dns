@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using DNS.Server;
+﻿using DNS.Server;
 
 namespace DNS;
 
